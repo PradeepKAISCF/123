@@ -1,0 +1,182 @@
+        <style>
+        table, tr, th, td, caption {
+    border: 1px solid #0d0d0d;
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+    padding: 0.5rem;
+}
+    </style>
+
+    <script>
+        function updateRadioSelection() {
+            var igcare = document.getElementsByName("igcare")[0].value;
+            var igcaro = document.getElementsByName("igcaro")[0].value;
+            var compe = document.getElementsByName("compe")[0].value;
+            var compo = document.getElementsByName("compo")[0].value;
+            var fusee = document.getElementsByName("fusee")[0].value;
+            var fuseo = document.getElementsByName("fuseo")[0].value;
+
+            if (igcare === compe) {
+                document.getElementById("a1s").checked = true;
+            } else {
+                document.getElementById("a1n").checked = true;
+            }
+
+            if (igcaro === compo) {
+                document.getElementById("a2s").checked = true;
+            } else {
+                document.getElementById("a2n").checked = true;
+            }
+            
+            if (igcare === fusee) {
+                document.getElementById("a3s").checked = true;
+            } else {
+                document.getElementById("a3n").checked = true;
+            }
+            
+            if (compe === fusee) {
+                document.getElementById("a4s").checked = true;
+            } else {
+                document.getElementById("a4n").checked = true;
+            }
+
+            if (igcaro === fuseo) {
+                document.getElementById("a5s").checked = true;
+            } else {
+                document.getElementById("a5n").checked = true;
+            }
+
+            if (compo === fuseo) {
+                document.getElementById("a6s").checked = true;
+            } else {
+                document.getElementById("a6n").checked = true;
+            }
+        }
+
+        // Attach event listeners to input fields
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementsByName("igcare")[0].addEventListener("input", updateRadioSelection);
+            document.getElementsByName("igcaro")[0].addEventListener("input", updateRadioSelection);
+            document.getElementsByName("compe")[0].addEventListener("input", updateRadioSelection);
+            document.getElementsByName("compo")[0].addEventListener("input", updateRadioSelection);
+            document.getElementsByName("fusee")[0].addEventListener("input", updateRadioSelection);
+            document.getElementsByName("fuseo")[0].addEventListener("input", updateRadioSelection);
+        });
+    </script>
+
+    </head>
+    
+    <body>
+        <h1>EPROM Fusion Operation</h1>
+        <table>
+            <tr>
+                <td colspan = 4>a. Name of the EIC / his / her <br>authorized person on whose presence <br> the fuse operation being carried out</td>
+                <td colspan =4><textarea name="Name" id="name" cols="50" rows="5"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan = 4>
+                b. Date & time of EPROM Fuse
+                </td>
+                <td colspan = 4>
+                <?php echo date('Y-m-d H:i:s'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td colspan = 2>
+                c.  Checksum Details <br> (NOTE: All checksums shall match)
+                </td>
+                <td colspan = 2>
+                Even [1/2/U23]
+                </td>
+                <td colspan = 2>
+                Odd  [1/2/U24]
+                </td>
+            </tr>
+            <tr>
+                <td colspan = 2>
+                i. Checksum received from IGCAR
+                </td>
+                <td colspan = 2>
+                    <input type="text" name = "igcare" id = "igcare">
+                </td>
+                <td colspan = 2>
+                    <input type="text" name = "igcaro" id = "igcaro">
+                </td>
+            </tr>
+            <tr>
+                <td colspan = 2>
+                ii.   Checksum computed on received program
+                </td>
+                <td colspan = 2>
+                    <input type="text" name = "compe" id = "compe">
+                </td>
+                <td colspan = 2>
+                    <input type="text" name = "compo" id = "compo">
+                </td>
+            </tr>
+            <tr>
+        <td colspan="2">
+            iii. Are the checksums matched in (i) and (ii)?
+        </td>
+        <td colspan="2">
+            Yes <input type="radio" name="a1" value="yes" id="a1s" disabled>
+            No <input type="radio" name="a1" value="no" id="a1n" disabled>
+        </td>
+        <td colspan="2">
+            Yes <input type="radio" name="a2" value="yes" id="a2s" disabled>
+            No <input type="radio" name="a2" value="no" id="a2n" disabled>
+        </td>
+    </tr>
+            <tr>
+                <td colspan = 2>
+                iv. Checksum computed after fusing
+                </td>
+                <td>
+                Even [1/2/U23]
+                </td>
+                <td><input type="text" name = "fusee" id = "fusee"></td>
+                <td>
+                Odd  [1/2/U24]
+                </td>
+                <td><input type="text" name = "fuseo" id = "fuseo"></td>
+            </tr>
+            <tr>
+                <td colspan = 2>
+                v. Checksum (iv) matched with (i) and (ii)
+                </td>
+                <td>
+                   Yes <input type="radio" name ="a3" value="Yes" id = "a3s" disabled>
+                   No <input type="radio" name ="a3" value="no" id= "a3n" disabled> 
+                </td>
+                <td>
+                   Yes <input type="radio" name ="a4" value="Yes" id = "a4s" disabled>
+                   No <input type="radio" name ="a4" value="no" id= "a4n" disabled> 
+                </td>
+                <td>
+                   Yes <input type="radio" name ="a5" value="Yes" id = "a5s" disabled>
+                   No <input type="radio" name ="a5" value="no" id= "a5n" disabled> 
+                </td>
+                <td>
+                   Yes <input type="radio" name ="a6" value="Yes" id = "a6s" disabled>
+                   No <input type="radio" name ="a6" value="no" id= "a6n" disabled> 
+                </td>
+            </tr>
+            <tr>
+                <td colspan =4>
+                d.      No. of old EPROMS received, if any
+                </td>
+                <td colspan = 2>
+                    <input type="number" name = "noEprom" id = "noEprom" min=0>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=4>
+                e.      Name and designation of the <br>person to whom the newly  <br>programmed EPROMS handed over
+                </td>
+                <td colspan=2><textarea name="Name" id="name" cols="50" rows="5"></textarea></td>
+            </tr>
+        </table>
+        <p>
+        <button type="submit">Submit</button>
+        </p>
+    </body>
