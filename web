@@ -1,10 +1,18 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>
+            Eprom Fussion
+        </title>
         <style>
         table, tr, th, td, caption {
     border: 1px solid #0d0d0d;
     font-family: 'Courier New', Courier, monospace;
     border-collapse: collapse;
     padding: 0.5rem;
-}
+}6
     </style>
 
     <script>
@@ -68,6 +76,7 @@
     
     <body>
         <h1>EPROM Fusion Operation</h1>
+        <form action="epromdb.php" , method = "post">
         <table>
             <tr>
                 <td colspan = 4>a. Name of the EIC / his / her <br>authorized person on whose presence <br> the fuse operation being carried out</td>
@@ -173,10 +182,13 @@
                 <td colspan=4>
                 e.      Name and designation of the <br>person to whom the newly  <br>programmed EPROMS handed over
                 </td>
-                <td colspan=2><textarea name="Name" id="name" cols="50" rows="5"></textarea></td>
+                <td colspan=2><textarea name="NameH" id="Nameh" cols="50" rows="5"></textarea></td>
             </tr>
         </table>
         <p>
-        <button type="submit">Submit</button>
+        <input type="submit" name=submit id =submit>
         </p>
+        </form>
     </body>
+
+</html>
