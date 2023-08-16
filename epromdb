@@ -1,0 +1,12 @@
+<?php
+   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])){
+    $conn = mysqli_connect('localhost', 'root', '', 'kaiscf') or die("Connect Failed:".mysqli_connect_error());
+    $eic = $_POST['Name'];
+    echo $eic;
+    $date = date('Y-m-d H:i:s');
+    
+
+    $sql = "INSERT INTO `eprom` (`name`, `date`) VALUES ('$eic', '$date');";
+    $query = mysqli_query($conn,$sql);
+   }
+?>
