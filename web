@@ -128,8 +128,8 @@
             iii. Are the checksums matched in (i) and (ii)?
         </td>
         <td colspan="2">
-            Yes <input type="radio" name="a1" value="yes" id="a1s" disabled>
-            No <input type="radio" name="a1" value="no" id="a1n" disabled>
+            Yes <input type="radio" name="ab" value="yes" id="a1s" disabled>
+            No <input type="radio" name="ab" value="no" id="a1n" disabled>
         </td>
         <td colspan="2">
             Yes <input type="radio" name="a2" value="yes" id="a2s" disabled>
@@ -179,11 +179,12 @@
                 </td>
             </tr>
             <tr>
-                <td colspan=4>
+                <td colspan=4 rowspan = 2>
                 e.      Name and designation of the <br>person to whom the newly  <br>programmed EPROMS handed over
                 </td>
                 <td colspan=2><textarea name="NameH" id="Nameh" cols="50" rows="5"></textarea></td>
             </tr>
+            <tr> <td  colspan=2><textarea name="NameHD" id="Namehd" cols="50" rows="5"></textarea></td></tr>
         </table>
         <p>
         <input type="submit" name=submit id =submit>
