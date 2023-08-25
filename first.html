@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navigation Menu</title>
+    <style>
+        .container {
+            display: flex;
+            
+        }
+
+        .custom-button {
+            margin: 0 10px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .main-button{
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+        }
+        
+        .custom-button .options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            color: #000000;
+            border-radius: 5px;
+            padding: 5px 0;
+            width: 150px;
+            z-index: 1;
+        }
+
+        .custom-button:hover .options {
+            display: block;
+        }
+
+        .option {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function navigateToPage(option) {
+            if (option === '1') {
+                window.location.href = 'eprom.php';
+            } else if (option === '2') {
+                window.location.href = 'software_loading.php';
+            } else if (option === '3') {
+                window.location.href = 'database_change.php';
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="custom-button">
+        <button class="main-button">Home</button>
+    </div>
+
+    <div class="custom-button">
+        <span>Go to Webpage</span>
+        <div class="options">
+            <div class="option" onclick="navigateToPage('1')">Fuse Eprom</div>
+            <div class="option" onclick="navigateToPage('2')">Software Loading</div>
+            <div class="option" onclick="navigateToPage('3')">Database Change</div>
+        </div>
+    </div>
+
+    <div class="custom-button">
+        <button class="main-button">Report</button>
+    </div>
+</div>
+
+</body>
+</html>
